@@ -1,0 +1,48 @@
+﻿@page
+@model MovieLibraryWeb.Pages.Movies.CreateModel
+
+<h1>Create a Movie</h1>
+
+<form method="post">
+    <table>
+        <tr>
+            <td><label>Title:</label></td>
+            <td><input asp-for="Movie.Title" placeholder="Title" /></td>
+        </tr>
+        <tr>
+            <td><label>Description:</label></td>
+            <td><input asp-for="Movie.Description" placeholder="Description" /></td>
+        </tr>
+        <tr>
+            <td><label>Movie Rating:</label></td>
+            <td><input asp-for="Movie.Rating" placeholder="Rating" /></td>
+        </tr>
+        <tr>
+            <td>Director</td>
+        </tr>
+        <tr>
+            <td><label>First Name:</label></td>
+            <td><input asp-for="Movie.Director.FirstName" placeholder="Firstname" /></td>
+        </tr>
+        <tr>
+            <td><label>Last Name:</label></td>
+            <td><input asp-for="Movie.Director.LastName" placeholder="Lastname" /></td>
+        </tr>
+        <tr>
+            <td>
+                Studio
+            </td>
+        </tr>
+        <tr>
+            <td><label>Name:</label></td>
+            <td><input asp-for="Movie.Studio.Name" placeholder="Studio Name" /></td>
+        </tr>
+        <tr>
+            <td><label>Description:</label></td>
+            <td><input asp-for="Movie.Studio.Description" placeholder="Studio Description" /></td>
+        </tr>
+    </table>
+    <div>
+        <button type="submit">Create</button>
+    </div>
+</form>

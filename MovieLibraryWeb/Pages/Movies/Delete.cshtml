@@ -1,0 +1,46 @@
+﻿@page
+@model MovieLibraryWeb.Pages.Movies.DeleteModel
+<h1>Delete Movie</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Movie.Id" />
+    <h3>Are you sure you want to delete this movie?</h3>
+    <table>
+        <tr>
+            <td><label>Title:</label></td>
+            <td><span>@Model.Movie.Title</span></td>
+        </tr>
+        <tr>
+            <td><label>Description:</label></td>
+            <td><span>@Model.Movie.Description</span></td>
+        </tr>
+        <tr>
+            <td><label>Rating:</label></td>
+            <td><span>@Model.Movie.Rating</span></td>
+        </tr>
+        <tr>
+            <td>Director</td>
+        </tr>
+        <tr>
+            <td><label>Director:</label></td>
+            <td><span>@Model.Movie.Director.FirstName @Model.Movie.Director.LastName</span></td>
+        </tr>
+        <tr>
+            <td>
+                Studio
+            </td>
+        </tr>
+        <tr>
+            <td><label>Name:</label></td>
+            <td><span>@Model.Movie.Studio.Name</span></td>
+        </tr>
+        <tr>
+            <td><label>Description:</label></td>
+            <td><span>@Model.Movie.Studio.Description</span></td>
+        </tr>
+    </table>
+    <div>
+        <button type="submit">Delete</button>
+        <a asp-page="/Movies">Back to List</a>
+    </div>
+</form>

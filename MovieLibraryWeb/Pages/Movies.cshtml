@@ -1,0 +1,34 @@
+﻿@page
+@model MovieLibraryWeb.Pages.MoviesModel
+<h1>Movies</h1>
+
+<a asp-page="/Movies/Create">Create New</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Rating</th>
+            <th>Director</th>
+            <th>Studio</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model.Movies)
+        {
+            <tr>
+                <td>@movie.Title</td>
+                <td>@movie.Description</td>
+                <td>@movie.Rating</td>
+                <td>@movie.Director.FirstName @movie.Director.LastName</td>
+                <td>@movie.Studio.Name</td>
+                <td>
+                    <a asp-page="/Movies/Edit" asp-route-id="@movie.Id">Edit</a> |
+                    <a asp-page="/Movies/Delete" asp-route-id="@movie.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
