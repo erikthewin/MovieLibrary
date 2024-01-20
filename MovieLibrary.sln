@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieLibraryWeb", "MovieLibraryWeb\MovieLibraryWeb.csproj", "{18FE5828-E34C-4F05-A839-95B874A0DB1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieLibraryWeb", "MovieLibraryWeb\MovieLibraryWeb.csproj", "{18FE5828-E34C-4F05-A839-95B874A0DB1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieLibraryDataAccess", "MovieLibraryDataAccess\MovieLibraryDataAccess.csproj", "{D29DA947-6DC2-48CE-8AC7-E243FFC8CD37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieLibraryDataAccess", "MovieLibraryDataAccess\MovieLibraryDataAccess.csproj", "{D29DA947-6DC2-48CE-8AC7-E243FFC8CD37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieLibraryApi", "MovieLibraryApi\MovieLibraryApi.csproj", "{39D0E0C7-DB63-4C50-B3E4-2E20E94507F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D29DA947-6DC2-48CE-8AC7-E243FFC8CD37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D29DA947-6DC2-48CE-8AC7-E243FFC8CD37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D29DA947-6DC2-48CE-8AC7-E243FFC8CD37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39D0E0C7-DB63-4C50-B3E4-2E20E94507F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39D0E0C7-DB63-4C50-B3E4-2E20E94507F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39D0E0C7-DB63-4C50-B3E4-2E20E94507F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39D0E0C7-DB63-4C50-B3E4-2E20E94507F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

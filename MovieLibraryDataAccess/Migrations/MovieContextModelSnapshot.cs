@@ -32,15 +32,17 @@ namespace MovieLibraryDataAccess.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(32)
+                        .HasColumnType("varchar(32)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(32)
+                        .HasColumnType("varchar(32)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Directors");
+                    b.ToTable("Director");
                 });
 
             modelBuilder.Entity("MovieLibraryDataAccess.Models.Movie", b =>
@@ -53,14 +55,11 @@ namespace MovieLibraryDataAccess.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(300)
+                        .HasColumnType("varchar(300)");
 
                     b.Property<int>("DirectorId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Rating")
                         .HasColumnType("int");
@@ -68,13 +67,18 @@ namespace MovieLibraryDataAccess.Migrations
                     b.Property<int>("StudioId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("DirectorId");
 
                     b.HasIndex("StudioId");
 
-                    b.ToTable("Movies");
+                    b.ToTable("Movie");
                 });
 
             modelBuilder.Entity("MovieLibraryDataAccess.Models.Studio", b =>
@@ -87,15 +91,17 @@ namespace MovieLibraryDataAccess.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(300)
+                        .HasColumnType("varchar(300)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(32)
+                        .HasColumnType("varchar(32)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Studios");
+                    b.ToTable("Studio");
                 });
 
             modelBuilder.Entity("MovieLibraryDataAccess.Models.Movie", b =>

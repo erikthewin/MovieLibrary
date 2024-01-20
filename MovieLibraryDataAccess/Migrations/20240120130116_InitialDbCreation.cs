@@ -5,76 +5,76 @@
 namespace MovieLibraryDataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDBMigration : Migration
+    public partial class InitialDbCreation : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Directors",
+                name: "Director",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(32)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(32)", nullable: false)
+                    FirstName = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false),
+                    LastName = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Directors", x => x.Id);
+                    table.PrimaryKey("PK_Director", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Studios",
+                name: "Studio",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(32)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(300)", nullable: false)
+                    Name = table.Column<string>(type: "varchar(32)", maxLength: 32, nullable: false),
+                    Description = table.Column<string>(type: "varchar(300)", maxLength: 300, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Studios", x => x.Id);
+                    table.PrimaryKey("PK_Studio", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Movies",
+                name: "Movie",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(70)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(300)", nullable: false),
+                    Title = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "varchar(300)", maxLength: 300, nullable: false),
                     Rating = table.Column<int>(type: "int", nullable: true),
                     StudioId = table.Column<int>(type: "int", nullable: false),
                     DirectorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Movies", x => x.Id);
+                    table.PrimaryKey("PK_Movie", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Movies_Directors_DirectorId",
+                        name: "FK_Movie_Director_DirectorId",
                         column: x => x.DirectorId,
-                        principalTable: "Directors",
+                        principalTable: "Director",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Movies_Studios_StudioId",
+                        name: "FK_Movie_Studio_StudioId",
                         column: x => x.StudioId,
-                        principalTable: "Studios",
+                        principalTable: "Studio",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Movies_DirectorId",
-                table: "Movies",
+                name: "IX_Movie_DirectorId",
+                table: "Movie",
                 column: "DirectorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Movies_StudioId",
-                table: "Movies",
+                name: "IX_Movie_StudioId",
+                table: "Movie",
                 column: "StudioId");
         }
 
@@ -82,13 +82,13 @@ namespace MovieLibraryDataAccess.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Movies");
+                name: "Movie");
 
             migrationBuilder.DropTable(
-                name: "Directors");
+                name: "Director");
 
             migrationBuilder.DropTable(
-                name: "Studios");
+                name: "Studio");
         }
     }
 }
