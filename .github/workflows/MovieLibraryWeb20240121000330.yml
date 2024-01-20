@@ -9,6 +9,8 @@ env:
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 8.0.x
   WORKING_DIRECTORY: MovieLibraryWeb
+  DOTNET_ENVIRONMENT: Production
+  ASPNETCORE_ENVIRONMENT: Production
 jobs:
   build:
     runs-on: windows-latest
