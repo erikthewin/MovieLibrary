@@ -67,5 +67,11 @@ namespace MovieLibraryWeb.Pages.Movies
 
             return RedirectToPage("/Movies");
         }
+
+        private bool IsRatingValid(int? rating)
+        {
+            // Add any additional validation logic here
+            return rating.HasValue;
+        }
     }
 }
