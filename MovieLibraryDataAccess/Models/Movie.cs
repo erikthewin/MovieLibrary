@@ -19,7 +19,8 @@ namespace MovieLibraryDataAccess.Models
         [MaxLength(300)]
         [Column(TypeName = "varchar(300)")]
         public string Description { get; set; }
-        public int? Rating { get; set; }
+        [Range(0, 4, ErrorMessage = "Rating must be between 0 and 5")]
+        public int Rating { get; set; }
         public Studio Studio { get; set; }
         public Director Director { get; set; }
     }
